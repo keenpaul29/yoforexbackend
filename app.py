@@ -1,4 +1,3 @@
-# app.py
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -11,7 +10,7 @@ import requests
 import numpy as np
 import cv2
 
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, File, UploadFile, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.testclient import TestClient
 
@@ -63,7 +62,7 @@ def is_trading_chart(path: str) -> bool:
     )
     return lines is not None and len(lines) > 20
 
-def analyze_image_with_gemini(path: str) -> dict:
+def analyze_image_with_gemini(path: str, timeframe: str) -> dict:
     """
     Calls Gemini API for JSON analysis.
     """
@@ -71,15 +70,34 @@ def analyze_image_with_gemini(path: str) -> dict:
     with open(path, "rb") as f:
         data_b64 = base64.b64encode(f.read()).decode()
 
+    # Updated prompt with the selected timeframe
     prompt = (
-        "You are an expert trading chart analyst. Respond ONLY with this JSON schema:\n"
-        '{ "signal":"BUY or SELL", "confidence":"int %", '
-        '"entry":"price","stop_loss":"price","take_profit":"price", '
-        '"risk_reward_ratio":"R:R", '
-        '"technical_analysis":{ "RSI":"num","MACD":"Bullish/Bearish","Moving_Average":"status" }, '
-        '"recommendation":"text" }\n'
-        "Analyze the image and fill each field."
-    )
+    f"You are an expert trading chart analyst using ICT concepts and techniques for swing trading. "
+    f"Based on the selected timeframe ({timeframe}), respond ONLY with this JSON schema:\n"
+    '{ "signal":"BUY or SELL", '
+    '"confidence":"int %", '
+    '"entry":"price", '
+    '"stop_loss":"price", '
+    '"take_profit":"price", '
+    '"risk_reward_ratio":"R:R", '
+    '"timeframe":"{timeframe}", '
+    '"technical_analysis":{ '
+    '"RSI":"num", '
+    '"MACD":"Bullish/Bearish", '
+    '"Moving_Average":"status", '
+    '"ICT_Order_Block":"Detected/Not Detected", '
+    '"ICT_Fair_Value_Gap":"Detected/Not Detected", '
+    '"ICT_Breaker_Block":"Detected/Not Detected", '
+    '"ICT_Trendline":"Upward/Downward/Neutral" '
+    '}, '
+    '"recommendation":"text", '
+    '"dynamic_stop_loss":"calculated based on selected timeframe", '
+    '"dynamic_take_profit":"calculated based on selected timeframe" '
+    "}\n"
+    "Analyze the image, identify the relevant ICT concepts (order blocks, fair value gaps, etc.), "
+    "and fill each field dynamically, including calculated TP and SL levels based on the selected timeframe (H4, D1, W1)."
+)
+
     payload = {
         "contents": [
             { "parts":[ {"text": prompt},
@@ -87,7 +105,7 @@ def analyze_image_with_gemini(path: str) -> dict:
         ],
         "generationConfig": { "response_mime_type": "application/json" }
     }
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_KEY}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_KEY}"
     resp = requests.post(url, json=payload, timeout=60)
     if resp.status_code != 200:
         print("→ Gemini error:", resp.status_code, resp.text)
@@ -100,7 +118,10 @@ def analyze_image_with_gemini(path: str) -> dict:
 
 # --- Endpoint ---
 @app.post("/analyze-chart/")
-async def analyze_chart_endpoint(file: UploadFile = File(...)):
+async def analyze_chart_endpoint(
+    file: UploadFile = File(...),
+    timeframe: str = Query(..., enum=["H1", "D1", "W1"], description="Select the timeframe for swing trading analysis.")
+):
     # 1) save file
     file_id = str(uuid.uuid4())
     ext = os.path.splitext(file.filename)[1] or ".png"
@@ -115,7 +136,7 @@ async def analyze_chart_endpoint(file: UploadFile = File(...)):
 
     # 3) analyze
     try:
-        result = analyze_image_with_gemini(path)
+        result = analyze_image_with_gemini(path, timeframe)
     finally:
         os.remove(path)
 
@@ -130,7 +151,7 @@ def _run_test():
         return
 
     with open(sample, "rb") as img:
-        r = client.post("/analyze-chart/", files={"file":("test.png", img, "image/png")})
+        r = client.post("/analyze-chart/", files={"file":("test.png", img, "image/png")}, params={"timeframe": "D1"})
     print("TEST status:", r.status_code)
     print("TEST body:", r.text)
 
