@@ -1,7 +1,8 @@
 # routers/auth.py
 import logging
+import re
 from fastapi import APIRouter, HTTPException, Depends, status
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, validator
 from sqlalchemy.orm import Session
 from datetime import datetime, timedelta
 from typing import Dict, Any
@@ -10,6 +11,7 @@ import os
 import requests
 from passlib.context import CryptContext
 from dotenv import load_dotenv
+import phonenumbers
 
 from utils.db import get_db
 from models import User
@@ -26,18 +28,68 @@ WATI_ACCESS_TOKEN = os.getenv("WATI_ACCESS_TOKEN")  # e.g. Bearer <token>
 
 # Schemas
 JSON = Dict[str, Any]
+
 class SignupRequest(BaseModel):
     name: str
     email: EmailStr
     phone: str
     password: str
 
+    @validator('phone')
+    def validate_phone(cls, v):
+        # Basic format check
+        if not re.match(r'^\+\d{10,15}$', v):
+            raise ValueError('Phone must be in E.164 format (e.g. +12345678901)')
+        # Using phonenumbers for deeper validation
+        try:
+            num = phonenumbers.parse(v, None)
+            if not phonenumbers.is_valid_number(num):
+                raise ValueError('Invalid phone number')
+        except phonenumbers.NumberParseException:
+            raise ValueError('Invalid phone number')
+        return phonenumbers.format_number(num, phonenumbers.PhoneNumberFormat.E164)
+
+    @validator('password')
+    def validate_password(cls, v):
+        # Minimum length
+        if len(v) < 8:
+            raise ValueError('Password must be at least 8 characters long')
+        # At least one uppercase, one lowercase, one digit, one special char
+        if not re.search(r'[A-Z]', v):
+            raise ValueError('Password must contain at least one uppercase letter')
+        if not re.search(r'[a-z]', v):
+            raise ValueError('Password must contain at least one lowercase letter')
+        if not re.search(r'\d', v):
+            raise ValueError('Password must contain at least one digit')
+        if not re.search(r'[^A-Za-z0-9]', v):
+            raise ValueError('Password must contain at least one special character')
+        return v
+
 class OTPRequest(BaseModel):
     phone: str
+
+    @validator('phone')
+    def validate_phone_otp(cls, v):
+        if not re.match(r'^\+\d{10,15}$', v):
+            raise ValueError('Phone must be in E.164 format')
+        return v
 
 class OTPVerifyRequest(BaseModel):
     phone: str
     otp: str
+
+    @validator('phone')
+    def validate_phone_verify(cls, v):
+        if not re.match(r'^\+\d{10,15}$', v):
+            raise ValueError('Phone must be in E.164 format')
+        return v
+
+    @validator('otp')
+    def validate_otp_length(cls, v):
+        # OTP must be exactly 4 digits
+        if not v.isdigit() or len(v) != 4:
+            raise ValueError('OTP must be exactly 4 digits')
+        return v
 
 class EmailLoginRequest(BaseModel):
     email: EmailStr
@@ -46,6 +98,12 @@ class EmailLoginRequest(BaseModel):
 class PhonePasswordLoginRequest(BaseModel):
     phone: str
     password: str
+
+    @validator('phone')
+    def validate_phone_login(cls, v):
+        if not re.match(r'^\+\d{10,15}$', v):
+            raise ValueError('Phone must be in E.164 format')
+        return v
 
 # Helper: send OTP via WhatsApp
 def send_whatsapp_otp(phone: str, otp: str) -> JSON:
@@ -77,9 +135,9 @@ def send_whatsapp_otp(phone: str, otp: str) -> JSON:
 def signup(payload: SignupRequest, db: Session = Depends(get_db)):
     existing = db.query(User).filter((User.phone == payload.phone) | (User.email == payload.email)).first()
     if existing and existing.is_verified:
-        raise HTTPException(400, "User already registered and verified.")
+        raise HTTPException(status_code=400, detail="User already registered and verified.")
 
-    otp = f"{random.randint(1000,9999)}"
+    otp = str(random.randint(1000, 9999))
     expiry = datetime.utcnow() + timedelta(minutes=10)
     hashed = pwd_context.hash(payload.password)
 
@@ -113,15 +171,15 @@ def signup(payload: SignupRequest, db: Session = Depends(get_db)):
 def verify_signup_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.phone == payload.phone).first()
     if not user:
-        raise HTTPException(404, "User not found.")
+        raise HTTPException(status_code=404, detail="User not found.")
     if user.is_verified:
         return {"status": "already_verified"}
     if datetime.utcnow() > user.otp_expiry:
-        raise HTTPException(400, "OTP expired.")
+        raise HTTPException(status_code=400, detail="OTP expired.")
     if payload.otp != user.otp_code:
         user.attempts += 1
         db.commit()
-        raise HTTPException(400, "Invalid OTP.")
+        raise HTTPException(status_code=400, detail="Invalid OTP.")
     user.is_verified = True
     user.otp_code = None
     user.otp_expiry = None
@@ -134,9 +192,9 @@ def verify_signup_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
 def login_email(payload: EmailLoginRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == payload.email).first()
     if not user or not pwd_context.verify(payload.password, user.password_hash):
-        raise HTTPException(401, "Invalid email or password.")
+        raise HTTPException(status_code=401, detail="Invalid email or password.")
     if not user.is_verified:
-        raise HTTPException(403, "Account not verified.")
+        raise HTTPException(status_code=403, detail="Account not verified.")
     # TODO: generate JWT/session
     return {"status": "login_successful"}
 
@@ -145,8 +203,8 @@ def login_email(payload: EmailLoginRequest, db: Session = Depends(get_db)):
 def request_login_otp(payload: OTPRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.phone == payload.phone).first()
     if not user:
-        raise HTTPException(404, "Phone number not registered.")
-    otp = f"{random.randint(1000,9999)}"
+        raise HTTPException(status_code=404, detail="Phone number not registered.")
+    otp = str(random.randint(1000, 9999))
     expiry = datetime.utcnow() + timedelta(minutes=10)
     user.otp_code = otp
     user.otp_expiry = expiry
@@ -160,18 +218,17 @@ def request_login_otp(payload: OTPRequest, db: Session = Depends(get_db)):
 def verify_login_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.phone == payload.phone).first()
     if not user:
-        raise HTTPException(404, "User not found.")
+        raise HTTPException(status_code=404, detail="User not found.")
     if datetime.utcnow() > user.otp_expiry:
-        raise HTTPException(400, "OTP expired.")
+        raise HTTPException(status_code=400, detail="OTP expired.")
     if payload.otp != user.otp_code:
         user.attempts += 1
         db.commit()
-        raise HTTPException(400, "Invalid OTP.")
+        raise HTTPException(status_code=400, detail="Invalid OTP.")
     # TODO: generate JWT/session
     return {"status": "login_successful"}
 
 # --- Logout ---
 @router.post("/logout")
 def logout():
-    # client should drop token; implement blacklisting if needed
     return {"status": "logged_out"}
