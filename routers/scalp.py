@@ -12,7 +12,7 @@ router = APIRouter()
 @router.post("/chart/")
 async def analyze_chart(
     file: UploadFile = File(...),
-    timeframe: str = Query(..., enum=["M1", "M5", "M15", "M30", "H1"], description="Swing timeframe")
+    timeframe: str = Query(..., enum=["M1", "M5", "M15", "M30", "H1"], description="Scalp timeframe")
 ):
     # 1) Save upload
     file_id = str(uuid.uuid4())
