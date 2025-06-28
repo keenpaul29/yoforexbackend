@@ -3,6 +3,7 @@ import logging
 import re
 from fastapi import APIRouter, HTTPException, Depends, status
 from pydantic import BaseModel, EmailStr, validator
+from pydantic_core import PydanticCustomError
 from sqlalchemy.orm import Session
 from datetime import datetime, timedelta
 from typing import Dict, Any
@@ -23,8 +24,8 @@ pwd_context = CryptContext(schemes=["bcrypt_sha256"], deprecated="auto")
 router = APIRouter(prefix="/auth", tags=["auth"])
 
 # WATI Configuration
-WATI_API_ENDPOINT = os.getenv("WATI_API_ENDPOINT")  # e.g. https://live-mt-server.wati.io/436184
-WATI_ACCESS_TOKEN = os.getenv("WATI_ACCESS_TOKEN")  # e.g. Bearer <token>
+WATI_API_ENDPOINT = os.getenv("WATI_API_ENDPOINT")
+WATI_ACCESS_TOKEN = os.getenv("WATI_ACCESS_TOKEN")
 
 # Schemas
 JSON = Dict[str, Any]
@@ -37,32 +38,28 @@ class SignupRequest(BaseModel):
 
     @validator('phone')
     def validate_phone(cls, v):
-        # Basic format check
         if not re.match(r'^\+\d{10,15}$', v):
-            raise ValueError('Phone must be in E.164 format (e.g. +12345678901)')
-        # Using phonenumbers for deeper validation
+            raise PydanticCustomError('phone.format', 'Phone must be in E.164 format (e.g. +12345678901)')
         try:
             num = phonenumbers.parse(v, None)
             if not phonenumbers.is_valid_number(num):
-                raise ValueError('Invalid phone number')
+                raise PydanticCustomError('phone.invalid', 'Invalid phone number')
         except phonenumbers.NumberParseException:
-            raise ValueError('Invalid phone number')
+            raise PydanticCustomError('phone.invalid', 'Invalid phone number')
         return phonenumbers.format_number(num, phonenumbers.PhoneNumberFormat.E164)
 
     @validator('password')
     def validate_password(cls, v):
-        # Minimum length
         if len(v) < 8:
-            raise ValueError('Password must be at least 8 characters long')
-        # At least one uppercase, one lowercase, one digit, one special char
+            raise PydanticCustomError('password.length', 'Password must be at least 8 characters long')
         if not re.search(r'[A-Z]', v):
-            raise ValueError('Password must contain at least one uppercase letter')
+            raise PydanticCustomError('password.uppercase', 'Password must contain at least one uppercase letter')
         if not re.search(r'[a-z]', v):
-            raise ValueError('Password must contain at least one lowercase letter')
+            raise PydanticCustomError('password.lowercase', 'Password must contain at least one lowercase letter')
         if not re.search(r'\d', v):
-            raise ValueError('Password must contain at least one digit')
+            raise PydanticCustomError('password.digit', 'Password must contain at least one digit')
         if not re.search(r'[^A-Za-z0-9]', v):
-            raise ValueError('Password must contain at least one special character')
+            raise PydanticCustomError('password.special', 'Password must contain at least one special character')
         return v
 
 class OTPRequest(BaseModel):
@@ -71,7 +68,7 @@ class OTPRequest(BaseModel):
     @validator('phone')
     def validate_phone_otp(cls, v):
         if not re.match(r'^\+\d{10,15}$', v):
-            raise ValueError('Phone must be in E.164 format')
+            raise PydanticCustomError('phone.format', 'Phone must be in E.164 format')
         return v
 
 class OTPVerifyRequest(BaseModel):
@@ -81,14 +78,13 @@ class OTPVerifyRequest(BaseModel):
     @validator('phone')
     def validate_phone_verify(cls, v):
         if not re.match(r'^\+\d{10,15}$', v):
-            raise ValueError('Phone must be in E.164 format')
+            raise PydanticCustomError('phone.format', 'Phone must be in E.164 format')
         return v
 
     @validator('otp')
     def validate_otp_length(cls, v):
-        # OTP must be exactly 4 digits
         if not v.isdigit() or len(v) != 4:
-            raise ValueError('OTP must be exactly 4 digits')
+            raise PydanticCustomError('otp.format', 'OTP must be exactly 4 digits')
         return v
 
 class EmailLoginRequest(BaseModel):
@@ -102,7 +98,7 @@ class PhonePasswordLoginRequest(BaseModel):
     @validator('phone')
     def validate_phone_login(cls, v):
         if not re.match(r'^\+\d{10,15}$', v):
-            raise ValueError('Phone must be in E.164 format')
+            raise PydanticCustomError('phone.format', 'Phone must be in E.164 format')
         return v
 
 # Helper: send OTP via WhatsApp
@@ -165,6 +161,7 @@ def signup(payload: SignupRequest, db: Session = Depends(get_db)):
     db.commit()
     send_whatsapp_otp(payload.phone, otp)
     return {"status": "otp_sent"}
+
 
 # --- Verify Signup OTP ---
 @router.post("/verify-signup-otp")
