@@ -1,4 +1,3 @@
-# routers/auth.py
 import logging
 import re
 from fastapi import APIRouter, HTTPException, Depends, status
@@ -17,18 +16,21 @@ import phonenumbers
 from utils.db import get_db
 from models import User
 
-# Setup
+# Setup logging and environment
 logger = logging.getLogger(__name__)
 load_dotenv()
+
+# Password hashing context
 pwd_context = CryptContext(schemes=["bcrypt_sha256"], deprecated="auto")
+
+# API router for authentication
 router = APIRouter(prefix="/auth", tags=["auth"])
 
-# WATI Configuration
+# WATI (WhatsApp) configuration
 WATI_API_ENDPOINT = os.getenv("WATI_API_ENDPOINT")
 WATI_ACCESS_TOKEN = os.getenv("WATI_ACCESS_TOKEN")
 
-# Schemas
-JSON = Dict[str, Any]
+# --- Schemas ---
 
 class SignupRequest(BaseModel):
     name: str
@@ -68,15 +70,11 @@ class OTPRequest(BaseModel):
     @validator('phone')
     def validate_phone_otp(cls, v):
         try:
-            # None means “expect the +COUNTRY code” in the string
             pn = phonenumbers.parse(v, None)
         except phonenumbers.NumberParseException:
             raise ValueError('Invalid phone number')
-
         if not phonenumbers.is_valid_number(pn):
             raise ValueError('Invalid phone number')
-
-        # canonicalize to E.164
         return phonenumbers.format_number(pn, phonenumbers.PhoneNumberFormat.E164)
 
 class OTPVerifyRequest(BaseModel):
@@ -109,8 +107,53 @@ class PhonePasswordLoginRequest(BaseModel):
             raise PydanticCustomError('phone.format', 'Phone must be in E.164 format')
         return v
 
-# Helper: send OTP via WhatsApp
-def send_whatsapp_otp(phone: str, otp: str) -> JSON:
+# --- New: Password Reset Schemas ---
+class PasswordResetRequest(BaseModel):
+    email: EmailStr
+    phone: str
+
+    @validator('phone')
+    def validate_phone(cls, v):
+        if not re.match(r'^\+\d{10,15}$', v):
+            raise PydanticCustomError('phone.format', 'Phone must be in E.164 format')
+        pn = phonenumbers.parse(v, None)
+        if not phonenumbers.is_valid_number(pn):
+            raise PydanticCustomError('phone.invalid', 'Invalid phone number')
+        return phonenumbers.format_number(pn, phonenumbers.PhoneNumberFormat.E164)
+
+class PasswordReset(BaseModel):
+    phone: str
+    otp: str
+    new_password: str
+
+    @validator('phone')
+    def validate_phone(cls, v):
+        if not re.match(r'^\+\d{10,15}$', v):
+            raise PydanticCustomError('phone.format', 'Phone must be in E.164 format')
+        return v
+
+    @validator('otp')
+    def validate_otp_length(cls, v):
+        if not v.isdigit() or len(v) != 4:
+            raise PydanticCustomError('otp.format', 'OTP must be exactly 4 digits')
+        return v
+
+    @validator('new_password')
+    def validate_new_password(cls, v):
+        if len(v) < 8:
+            raise PydanticCustomError('password.length', 'Password must be at least 8 characters long')
+        if not re.search(r'[A-Z]', v):
+            raise PydanticCustomError('password.uppercase', 'Must contain at least one uppercase letter')
+        if not re.search(r'[a-z]', v):
+            raise PydanticCustomError('password.lowercase', 'Must contain at least one lowercase letter')
+        if not re.search(r'\d', v):
+            raise PydanticCustomError('password.digit', 'Must contain at least one digit')
+        if not re.search(r'[^A-Za-z0-9]', v):
+            raise PydanticCustomError('password.special', 'Must contain at least one special character')
+        return v
+
+# --- Helper to send OTP via WhatsApp ---
+def send_whatsapp_otp(phone: str, otp: str) -> Dict[str, Any]:
     url = f"{WATI_API_ENDPOINT}/api/v1/sendTemplateMessage?whatsappNumber={phone}"
     payload = {
         "template_name": "login_otp",
@@ -134,7 +177,7 @@ def send_whatsapp_otp(phone: str, otp: str) -> JSON:
         raise HTTPException(status_code=502, detail=f"Error sending OTP: {e}")
     return r.json()
 
-# --- Signup ---
+# --- Signup Endpoint ---
 @router.post("/signup", status_code=status.HTTP_201_CREATED)
 def signup(payload: SignupRequest, db: Session = Depends(get_db)):
     existing = db.query(User).filter((User.phone == payload.phone) | (User.email == payload.email)).first()
@@ -170,7 +213,6 @@ def signup(payload: SignupRequest, db: Session = Depends(get_db)):
     send_whatsapp_otp(payload.phone, otp)
     return {"status": "otp_sent"}
 
-
 # --- Verify Signup OTP ---
 @router.post("/verify-signup-otp")
 def verify_signup_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
@@ -192,7 +234,7 @@ def verify_signup_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
     db.commit()
     return {"status": "verified"}
 
-# Login via Email/Password
+# --- Login via Email/Password ---
 @router.post("/login/email")
 def login_email(payload: EmailLoginRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == payload.email).first()
@@ -200,7 +242,6 @@ def login_email(payload: EmailLoginRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Invalid email or password.")
     if not user.is_verified:
         raise HTTPException(status_code=403, detail="Account not verified.")
-    # TODO: generate JWT/session
     return {"status": "login_successful"}
 
 # --- Request Login OTP ---
@@ -230,10 +271,43 @@ def verify_login_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
         user.attempts += 1
         db.commit()
         raise HTTPException(status_code=400, detail="Invalid OTP.")
-    # TODO: generate JWT/session
     return {"status": "login_successful"}
 
-# --- Logout ---
+# --- Logout Endpoint ---
 @router.post("/logout")
 def logout():
     return {"status": "logged_out"}
+
+# --- Request Password Reset OTP by Phone Only ---
+@router.post("/request-password-reset", status_code=status.HTTP_200_OK)
+def request_password_reset(payload: OTPRequest, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.phone == payload.phone).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="Account not found.")
+    otp = f"{random.randint(1000, 9999):04d}"
+    expiry = datetime.utcnow() + timedelta(minutes=10)
+    user.otp_code = otp
+    user.otp_expiry = expiry
+    user.attempts = 0
+    db.commit()
+    send_whatsapp_otp(user.phone, otp)
+    return {"status": "otp_sent"}
+
+# --- Reset Password Using OTP ---
+@router.post("/reset-password", status_code=status.HTTP_200_OK)
+def reset_password(payload: PasswordReset, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.phone == payload.phone).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found.")
+    if not user.otp_expiry or datetime.utcnow() > user.otp_expiry:
+        raise HTTPException(status_code=400, detail="OTP expired.")
+    if payload.otp != user.otp_code:
+        user.attempts += 1
+        db.commit()
+        raise HTTPException(status_code=400, detail="Invalid OTP.")
+    user.password_hash = pwd_context.hash(payload.new_password)
+    user.otp_code = None
+    user.otp_expiry = None
+    user.attempts = 0
+    db.commit()
+    return {"status": "password_reset_successful"}
