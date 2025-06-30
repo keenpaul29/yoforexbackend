@@ -192,7 +192,7 @@ def verify_signup_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
     db.commit()
     return {"status": "verified"}
 
-# --- Login via Email/Password ---
+# Login via Email/Password
 @router.post("/login/email")
 def login_email(payload: EmailLoginRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == payload.email).first()
