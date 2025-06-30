@@ -67,9 +67,17 @@ class OTPRequest(BaseModel):
 
     @validator('phone')
     def validate_phone_otp(cls, v):
-        if not re.match(r'^\+\d{10,15}$', v):
-            raise PydanticCustomError('phone.format', 'Phone must be in E.164 format')
-        return v
+        try:
+            # None means “expect the +COUNTRY code” in the string
+            pn = phonenumbers.parse(v, None)
+        except phonenumbers.NumberParseException:
+            raise ValueError('Invalid phone number')
+
+        if not phonenumbers.is_valid_number(pn):
+            raise ValueError('Invalid phone number')
+
+        # canonicalize to E.164
+        return phonenumbers.format_number(pn, phonenumbers.PhoneNumberFormat.E164)
 
 class OTPVerifyRequest(BaseModel):
     phone: str
