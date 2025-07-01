@@ -1,37 +1,82 @@
 import logging
 import re
+import os
+import random
+from datetime import datetime, timedelta
+from typing import Dict, Any, Optional
+
+import requests
+import phonenumbers
 from fastapi import APIRouter, HTTPException, Depends, status
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from jose import JWTError, jwt
 from pydantic import BaseModel, EmailStr, validator
 from pydantic_core import PydanticCustomError
-from sqlalchemy.orm import Session
-from datetime import datetime, timedelta
-from typing import Dict, Any
-import random
-import os
-import requests
 from passlib.context import CryptContext
 from dotenv import load_dotenv
-import phonenumbers
+from sqlalchemy.orm import Session
 
 from utils.db import get_db
 from models import User
 
-# Setup logging and environment
-logger = logging.getLogger(__name__)
+# Load environment variables
 load_dotenv()
+
+# Logger
+logger = logging.getLogger(__name__)
 
 # Password hashing context
 pwd_context = CryptContext(schemes=["bcrypt_sha256"], deprecated="auto")
 
-# API router for authentication
-router = APIRouter(prefix="/auth", tags=["auth"])
+# JWT Configuration
+SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("JWT_ACCESS_TOKEN_EXPIRE_MINUTES", 60))
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login/email")
 
 # WATI (WhatsApp) configuration
 WATI_API_ENDPOINT = os.getenv("WATI_API_ENDPOINT")
 WATI_ACCESS_TOKEN = os.getenv("WATI_ACCESS_TOKEN")
 
-# --- Schemas ---
+# API router for authentication
+router = APIRouter(prefix="/auth", tags=["auth"])
 
+# --- JWT Helpers ---
+
+def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
+    to_encode = data.copy()
+    expire = datetime.utcnow() + (expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
+    to_encode.update({"exp": expire})
+    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+
+
+def verify_access_token(token: str) -> dict:
+    return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+
+
+def get_current_user(
+    token: str = Depends(oauth2_scheme),
+    db: Session = Depends(get_db)
+) -> User:
+    credentials_exception = HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Could not validate credentials",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
+    try:
+        payload = verify_access_token(token)
+        email: str = payload.get("sub")
+        if not email:
+            raise credentials_exception
+    except JWTError:
+        raise credentials_exception
+    user = db.query(User).filter(User.email == email).first()
+    if not user:
+        raise credentials_exception
+    return user
+
+# --- Schemas ---
 class SignupRequest(BaseModel):
     name: str
     email: EmailStr
@@ -107,7 +152,6 @@ class PhonePasswordLoginRequest(BaseModel):
             raise PydanticCustomError('phone.format', 'Phone must be in E.164 format')
         return v
 
-# --- New: Password Reset Schemas ---
 class PasswordResetRequest(BaseModel):
     email: EmailStr
     phone: str
@@ -152,30 +196,14 @@ class PasswordReset(BaseModel):
             raise PydanticCustomError('password.special', 'Must contain at least one special character')
         return v
 
-
 class ProfileResponse(BaseModel):
     name: str
     email: EmailStr
     phone: str
     is_verified: bool
-    
     attempts: int
-# --- Profile Endpoint ---
-@router.get("/profile", response_model=ProfileResponse)
-def get_profile(db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.is_verified == True).first()
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found.")
-    
-    return ProfileResponse(
-        name=user.name,
-        email=user.email,
-        phone=user.phone,
-        is_verified=user.is_verified,
-        attempts=user.attempts
-    )
-    
-# --- Helper to send OTP via WhatsApp ---
+
+# Helper: send_whatsapp_otp
 def send_whatsapp_otp(phone: str, otp: str) -> Dict[str, Any]:
     url = f"{WATI_API_ENDPOINT}/api/v1/sendTemplateMessage?whatsappNumber={phone}"
     payload = {
@@ -200,17 +228,15 @@ def send_whatsapp_otp(phone: str, otp: str) -> Dict[str, Any]:
         raise HTTPException(status_code=502, detail=f"Error sending OTP: {e}")
     return r.json()
 
-# --- Signup Endpoint ---
+# Signup Endpoint
 @router.post("/signup", status_code=status.HTTP_201_CREATED)
 def signup(payload: SignupRequest, db: Session = Depends(get_db)):
     existing = db.query(User).filter((User.phone == payload.phone) | (User.email == payload.email)).first()
     if existing and existing.is_verified:
         raise HTTPException(status_code=400, detail="User already registered and verified.")
-
     otp = str(random.randint(1000, 9999))
     expiry = datetime.utcnow() + timedelta(minutes=10)
     hashed = pwd_context.hash(payload.password)
-
     if not existing:
         user = User(
             name=payload.name,
@@ -231,12 +257,11 @@ def signup(payload: SignupRequest, db: Session = Depends(get_db)):
         existing.otp_code = otp
         existing.otp_expiry = expiry
         existing.attempts = 0
-
     db.commit()
     send_whatsapp_otp(payload.phone, otp)
     return {"status": "otp_sent"}
 
-# --- Verify Signup OTP ---
+# Verify signup OTP
 @router.post("/verify-signup-otp")
 def verify_signup_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.phone == payload.phone).first()
@@ -257,17 +282,18 @@ def verify_signup_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
     db.commit()
     return {"status": "verified"}
 
-# --- Login via Email/Password ---
+# Login email/password (issues JWT)
 @router.post("/login/email")
-def login_email(payload: EmailLoginRequest, db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.email == payload.email).first()
-    if not user or not pwd_context.verify(payload.password, user.password_hash):
+def login_email(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.email == form_data.username).first()
+    if not user or not pwd_context.verify(form_data.password, user.password_hash):
         raise HTTPException(status_code=401, detail="Invalid email or password.")
     if not user.is_verified:
         raise HTTPException(status_code=403, detail="Account not verified.")
-    return {"status": "login_successful"}
+    access_token = create_access_token({"sub": user.email})
+    return {"access_token": access_token, "token_type": "bearer"}
 
-# --- Request Login OTP ---
+# Request login OTP
 @router.post("/login/request-otp")
 def request_login_otp(payload: OTPRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.phone == payload.phone).first()
@@ -282,7 +308,7 @@ def request_login_otp(payload: OTPRequest, db: Session = Depends(get_db)):
     send_whatsapp_otp(payload.phone, otp)
     return {"status": "otp_sent"}
 
-# --- Verify Login OTP ---
+# Verify login OTP (issues JWT)
 @router.post("/login/verify-otp")
 def verify_login_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.phone == payload.phone).first()
@@ -294,14 +320,15 @@ def verify_login_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
         user.attempts += 1
         db.commit()
         raise HTTPException(status_code=400, detail="Invalid OTP.")
-    return {"status": "login_successful"}
+    access_token = create_access_token({"sub": user.email})
+    return {"access_token": access_token, "token_type": "bearer"}
 
-# --- Logout Endpoint ---
+# Logout endpoint
 @router.post("/logout")
 def logout():
     return {"status": "logged_out"}
 
-# --- Request Password Reset OTP by Phone Only ---
+# Request password reset OTP
 @router.post("/request-password-reset", status_code=status.HTTP_200_OK)
 def request_password_reset(payload: OTPRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.phone == payload.phone).first()
@@ -316,11 +343,9 @@ def request_password_reset(payload: OTPRequest, db: Session = Depends(get_db)):
     send_whatsapp_otp(user.phone, otp)
     return {"status": "otp_sent"}
 
-# --- Reset Password Using OTP ---
+# Reset password using OTP
 @router.post("/reset-password", status_code=status.HTTP_200_OK)
 def reset_password(payload: PasswordReset, db: Session = Depends(get_db)):
-    
-    
     user = db.query(User).filter(User.phone == payload.phone).first()
     if not user:
         raise HTTPException(status_code=404, detail="User not found.")
@@ -336,3 +361,14 @@ def reset_password(payload: PasswordReset, db: Session = Depends(get_db)):
     user.attempts = 0
     db.commit()
     return {"status": "password_reset_successful"}
+
+# Protected profile endpoint
+@router.get("/profile", response_model=ProfileResponse)
+def get_profile(current_user: User = Depends(get_current_user)):
+    return ProfileResponse(
+        name=current_user.name,
+        email=current_user.email,
+        phone=current_user.phone,
+        is_verified=current_user.is_verified,
+        attempts=current_user.attempts
+    )
