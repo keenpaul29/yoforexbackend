@@ -152,6 +152,29 @@ class PasswordReset(BaseModel):
             raise PydanticCustomError('password.special', 'Must contain at least one special character')
         return v
 
+
+class ProfileResponse(BaseModel):
+    name: str
+    email: EmailStr
+    phone: str
+    is_verified: bool
+    
+    attempts: int
+# --- Profile Endpoint ---
+@router.get("/profile", response_model=ProfileResponse)
+def get_profile(db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.is_verified == True).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found.")
+    
+    return ProfileResponse(
+        name=user.name,
+        email=user.email,
+        phone=user.phone,
+        is_verified=user.is_verified,
+        attempts=user.attempts
+    )
+    
 # --- Helper to send OTP via WhatsApp ---
 def send_whatsapp_otp(phone: str, otp: str) -> Dict[str, Any]:
     url = f"{WATI_API_ENDPOINT}/api/v1/sendTemplateMessage?whatsappNumber={phone}"
@@ -296,6 +319,8 @@ def request_password_reset(payload: OTPRequest, db: Session = Depends(get_db)):
 # --- Reset Password Using OTP ---
 @router.post("/reset-password", status_code=status.HTTP_200_OK)
 def reset_password(payload: PasswordReset, db: Session = Depends(get_db)):
+    
+    
     user = db.query(User).filter(User.phone == payload.phone).first()
     if not user:
         raise HTTPException(status_code=404, detail="User not found.")
