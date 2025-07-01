@@ -259,7 +259,7 @@ def login_email(payload: EmailLoginRequest, response: Response, db: Session=Depe
     if not user.is_verified:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="Account not verified")
     token=create_access_token({"sub":user.email})
-    response.set_cookie("access_token",token,httponly=True,secure=True,samesite="lax",max_age=ACCESS_TOKEN_EXPIRE_MINUTES*60,path="/")
+    response.set_cookie("access_token",token,httponly=True,secure=True,samesite="none",max_age=ACCESS_TOKEN_EXPIRE_MINUTES*60,path="/")
     return{"status":"login_successful"}
 
 @router.post("/login/request-otp")
@@ -296,8 +296,8 @@ def verify_login_otp(
         "access_token",
         token,
         httponly=True,
-        secure=False,
-        samesite="lax",
+        secure=True,
+        samesite="none",
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         path="/",
     )
