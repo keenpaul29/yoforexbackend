@@ -267,7 +267,7 @@ def login_email(
         "access_token",
         token,
         httponly=True,
-        secure=True,
+        secure=False,
         samesite="none",
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         path="/",
