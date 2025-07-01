@@ -48,10 +48,8 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
-
 def verify_access_token(token: str) -> dict:
     return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-
 
 def get_current_user(request: Request, db: Session = Depends(get_db)) -> User:
     token = request.cookies.get("access_token")
@@ -110,9 +108,9 @@ class OTPRequest(BaseModel):
         try:
             pn = phonenumbers.parse(v, None)
         except phonenumbers.NumberParseException:
-            raise ValueError('Invalid phone number')
+            raise PydanticCustomError('phone.invalid', 'Invalid phone number')
         if not phonenumbers.is_valid_number(pn):
-            raise ValueError('Invalid phone number')
+            raise PydanticCustomError('phone.invalid', 'Invalid phone number')
         return phonenumbers.format_number(pn, phonenumbers.PhoneNumberFormat.E164)
 
 class OTPVerifyRequest(BaseModel):
@@ -143,9 +141,9 @@ class PasswordResetRequest(BaseModel):
         try:
             pn = phonenumbers.parse(v, None)
         except phonenumbers.NumberParseException:
-            raise ValueError('Invalid phone number')
+            raise PydanticCustomError('phone.invalid', 'Invalid phone number')
         if not phonenumbers.is_valid_number(pn):
-            raise ValueError('Invalid phone number')
+            raise PydanticCustomError('phone.invalid', 'Invalid phone number')
         return phonenumbers.format_number(pn, phonenumbers.PhoneNumberFormat.E164)
 
 class PasswordReset(BaseModel):
@@ -201,21 +199,34 @@ def send_whatsapp_otp(phone: str, otp: str) -> Dict[str, Any]:
 
 @router.post("/signup", status_code=status.HTTP_201_CREATED)
 def signup_endpoint(payload: SignupRequest, db: Session = Depends(get_db)):
-    existing = db.query(User).filter((User.phone == payload.phone) | (User.email == payload.email)).first()
+    existing = db.query(User)\
+        .filter((User.phone == payload.phone) | (User.email == payload.email))\
+        .first()
     if existing and existing.is_verified:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="User already registered and verified.")
     otp = str(random.randint(1000, 9999))
     expiry = datetime.utcnow() + timedelta(minutes=10)
     hashed = pwd_context.hash(payload.password)
     if not existing:
-        user = User(name=payload.name, email=payload.email, phone=payload.phone,
-                    password_hash=hashed, is_verified=False, otp_code=otp,
-                    otp_expiry=expiry, attempts=0)
+        user = User(
+            name=payload.name,
+            email=payload.email,
+            phone=payload.phone,
+            password_hash=hashed,
+            is_verified=False,
+            otp_code=otp,
+            otp_expiry=expiry,
+            attempts=0
+        )
         db.add(user)
     else:
-        existing.name, existing.email, existing.phone = payload.name, payload.email, payload.phone
-        existing.password_hash, existing.otp_code = hashed, otp
-        existing.otp_expiry, existing.attempts = expiry, 0
+        existing.name = payload.name
+        existing.email = payload.email
+        existing.phone = payload.phone
+        existing.password_hash = hashed
+        existing.otp_code = otp
+        existing.otp_expiry = expiry
+        existing.attempts = 0
     db.commit()
     send_whatsapp_otp(payload.phone, otp)
     return {"status": "otp_sent"}
@@ -233,20 +244,34 @@ def verify_signup_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
         user.attempts += 1
         db.commit()
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid OTP.")
-    user.is_verified, user.otp_code, user.otp_expiry, user.attempts = True, None, None, 0
+    user.is_verified = True
+    user.otp_code = None
+    user.otp_expiry = None
+    user.attempts = 0
     db.commit()
     return {"status": "verified"}
 
 @router.post("/login/email")
-def login_email(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db), response: Response):
+def login_email(
+    response: Response,
+    form_data: OAuth2PasswordRequestForm = Depends(),
+    db: Session = Depends(get_db),
+):
     user = db.query(User).filter(User.email == form_data.username).first()
     if not user or not pwd_context.verify(form_data.password, user.password_hash):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
     if not user.is_verified:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Account not verified")
     token = create_access_token({"sub": user.email})
-    response.set_cookie("access_token", token, httponly=True, secure=True, samesite="lax",
-                        max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60, path="/")
+    response.set_cookie(
+        "access_token",
+        token,
+        httponly=True,
+        secure=True,
+        samesite="lax",
+        max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
+        path="/",
+    )
     return {"status": "login_successful"}
 
 @router.post("/login/request-otp")
@@ -256,13 +281,19 @@ def request_login_otp(payload: OTPRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Phone not registered.")
     otp = str(random.randint(1000, 9999))
     expiry = datetime.utcnow() + timedelta(minutes=10)
-    user.otp_code, user.otp_expiry, user.attempts = otp, expiry, 0
+    user.otp_code = otp
+    user.otp_expiry = expiry
+    user.attempts = 0
     db.commit()
     send_whatsapp_otp(payload.phone, otp)
     return {"status": "otp_sent"}
 
 @router.post("/login/verify-otp")
-def verify_login_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db), response: Response):
+def verify_login_otp(
+    payload: OTPVerifyRequest,
+    response: Response,
+    db: Session = Depends(get_db),
+):
     user = db.query(User).filter(User.phone == payload.phone).first()
     if not user:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found.")
@@ -273,8 +304,15 @@ def verify_login_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db), r
         db.commit()
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid OTP.")
     token = create_access_token({"sub": user.email})
-    response.set_cookie("access_token", token, httponly=True, secure=True, samesite="lax",
-                        max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60, path="/")
+    response.set_cookie(
+        "access_token",
+        token,
+        httponly=True,
+        secure=True,
+        samesite="lax",
+        max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
+        path="/",
+    )
     return {"status": "login_successful"}
 
 @router.post("/logout")
@@ -289,7 +327,9 @@ def request_password_reset(payload: PasswordResetRequest, db: Session = Depends(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Account not found.")
     otp = f"{random.randint(1000, 9999):04d}"
     expiry = datetime.utcnow() + timedelta(minutes=10)
-    user.otp_code, user.otp_expiry, user.attempts = otp, expiry, 0
+    user.otp_code = otp
+    user.otp_expiry = expiry
+    user.attempts = 0
     db.commit()
     send_whatsapp_otp(payload.phone, otp)
     return {"status": "otp_sent"}
@@ -306,7 +346,9 @@ def reset_password(payload: PasswordReset, db: Session = Depends(get_db)):
         db.commit()
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid OTP.")
     user.password_hash = pwd_context.hash(payload.new_password)
-    user.otp_code, user.otp_expiry, user.attempts = None, None, 0
+    user.otp_code = None
+    user.otp_expiry = None
+    user.attempts = 0
     db.commit()
     return {"status": "password_reset_successful"}
 
