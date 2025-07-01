@@ -252,27 +252,15 @@ def verify_signup_otp(payload: OTPVerifyRequest, db: Session = Depends(get_db)):
     return {"status": "verified"}
 
 @router.post("/login/email")
-def login_email(
-    response: Response,
-    form_data: OAuth2PasswordRequestForm = Depends(),
-    db: Session = Depends(get_db),
-):
-    user = db.query(User).filter(User.email == form_data.username).first()
-    if not user or not pwd_context.verify(form_data.password, user.password_hash):
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
+def login_email(payload: EmailLoginRequest, response: Response, db: Session=Depends(get_db)):
+    user=db.query(User).filter(User.email==payload.email).first()
+    if not user or not pwd_context.verify(payload.password,user.password_hash):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,detail="Invalid credentials")
     if not user.is_verified:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Account not verified")
-    token = create_access_token({"sub": user.email})
-    response.set_cookie(
-        "access_token",
-        token,
-        httponly=True,
-        secure=False,
-        samesite="none",
-        max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
-        path="/",
-    )
-    return {"status": "login_successful"}
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="Account not verified")
+    token=create_access_token({"sub":user.email})
+    response.set_cookie("access_token",token,httponly=True,secure=True,samesite="none",max_age=ACCESS_TOKEN_EXPIRE_MINUTES*60,path="/")
+    return{"status":"login_successful"}
 
 @router.post("/login/request-otp")
 def request_login_otp(payload: OTPRequest, db: Session = Depends(get_db)):
@@ -308,8 +296,8 @@ def verify_login_otp(
         "access_token",
         token,
         httponly=True,
-        secure=True,
-        samesite="lax",
+        secure=False,
+        samesite="none",
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         path="/",
     )
