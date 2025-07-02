@@ -309,7 +309,16 @@ def verify_login_otp(
 
 @router.post("/logout")
 def logout(response: Response):
-    response.delete_cookie("access_token", path="/")
+    # overwrite the cookie with empty value + max_age=0 + same flags
+    response.set_cookie(
+        key="access_token",
+        value="",
+        httponly=True,
+        secure=True,
+        samesite="none",
+        max_age=0,
+        path="/",
+    )
     return {"status": "logged_out"}
 
 @router.post("/request-password-reset")
