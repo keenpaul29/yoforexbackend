@@ -1,5 +1,3 @@
-# app.py
-import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from utils.db import engine, Base
@@ -14,9 +12,15 @@ app = FastAPI(
     description="Upload a trading chart image and get an AI-powered analysis in JSON.",
 )
 
+origins = [
+    "http://localhost:3000",        # local dev
+    "http://127.0.0.1:5500",        # another local/dev address (no trailing slash)
+    "https://axiontrust.com",   # your production frontend
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # your frontend URL in dev
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
