@@ -14,7 +14,7 @@ app = FastAPI(
 
 origins = [
     "http://localhost:3000",        # local dev
-    "http://127.0.0.1:5500",        # another local/dev address (no trailing slash)
+    "https://app.axiontrust.com",        # another local/dev address (no trailing slash)
     "https://axiontrust.com",   # your production frontend
 ]
 
