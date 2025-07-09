@@ -1,0 +1,607 @@
+Jun 24 02:26:06 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:26:06 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:26:06 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:26:06 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:26:11 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13167.
+Jun 24 02:26:11 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:26:11 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:26:11 mail.barterbloom.com systemd[2229021]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:26:11 mail.barterbloom.com systemd[2229021]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:26:11 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:26:11 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:26:16 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13168.
+Jun 24 02:26:16 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:26:16 mail.barterbloom.com systemd[2229023]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:26:16 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:26:16 mail.barterbloom.com systemd[2229023]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:26:16 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:26:16 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:26:21 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13169.
+Jun 24 02:26:21 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:26:21 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:26:21 mail.barterbloom.com systemd[2229025]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:26:21 mail.barterbloom.com systemd[2229025]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:26:21 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:26:21 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:26:26 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13170.
+Jun 24 02:26:26 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:26:26 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:26:26 mail.barterbloom.com systemd[2229027]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:26:26 mail.barterbloom.com systemd[2229027]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:26:26 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:26:26 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:26:32 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13171.
+Jun 24 02:26:32 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:26:32 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:26:32 mail.barterbloom.com systemd[2229028]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:26:32 mail.barterbloom.com systemd[2229028]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:26:32 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:26:32 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:26:37 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13172.
+Jun 24 02:26:37 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:26:37 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:26:37 mail.barterbloom.com systemd[2229029]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:26:37 mail.barterbloom.com systemd[2229029]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:26:37 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:26:37 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:26:42 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13173.
+Jun 24 02:26:42 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:26:42 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:26:42 mail.barterbloom.com systemd[2229030]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:26:42 mail.barterbloom.com systemd[2229030]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:26:42 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:26:42 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:26:47 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13174.
+Jun 24 02:26:47 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:26:47 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:26:47 mail.barterbloom.com systemd[2229032]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:26:47 mail.barterbloom.com systemd[2229032]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:26:47 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:26:47 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:26:52 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13175.
+Jun 24 02:26:52 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:26:52 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:26:52 mail.barterbloom.com systemd[2229034]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:26:52 mail.barterbloom.com systemd[2229034]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:26:52 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:26:52 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:26:58 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13176.
+Jun 24 02:26:58 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:26:58 mail.barterbloom.com systemd[2229035]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:26:58 mail.barterbloom.com systemd[2229035]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:26:58 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:26:58 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:26:58 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:27:03 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13177.
+Jun 24 02:27:03 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:27:03 mail.barterbloom.com systemd[2229037]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:27:03 mail.barterbloom.com systemd[2229037]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:27:03 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:27:03 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:27:03 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:27:08 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13178.
+Jun 24 02:27:08 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:27:08 mail.barterbloom.com systemd[2229038]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:27:08 mail.barterbloom.com systemd[2229038]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:27:08 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:27:08 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:27:08 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:27:13 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13179.
+Jun 24 02:27:13 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:27:13 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:27:13 mail.barterbloom.com systemd[2229039]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:27:13 mail.barterbloom.com systemd[2229039]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:27:13 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:27:13 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:27:19 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13180.
+Jun 24 02:27:19 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:27:19 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:27:19 mail.barterbloom.com systemd[2229040]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:27:19 mail.barterbloom.com systemd[2229040]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:27:19 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:27:19 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:27:24 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13181.
+Jun 24 02:27:24 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:27:24 mail.barterbloom.com systemd[2229041]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:27:24 mail.barterbloom.com systemd[2229041]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:27:24 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:27:24 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:27:24 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:27:29 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13182.
+Jun 24 02:27:29 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:27:29 mail.barterbloom.com systemd[2229042]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:27:29 mail.barterbloom.com systemd[2229042]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:27:29 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:27:29 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:27:29 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:27:34 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13183.
+Jun 24 02:27:34 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:27:34 mail.barterbloom.com systemd[2229043]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:27:34 mail.barterbloom.com systemd[2229043]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:27:34 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:27:34 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:27:34 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:27:40 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13184.
+Jun 24 02:27:40 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:27:40 mail.barterbloom.com systemd[2229046]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:27:40 mail.barterbloom.com systemd[2229046]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:27:40 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:27:40 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:27:40 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:27:45 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13185.
+Jun 24 02:27:45 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:27:45 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:27:45 mail.barterbloom.com systemd[2229047]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:27:45 mail.barterbloom.com systemd[2229047]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:27:45 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:27:45 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:27:50 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13186.
+Jun 24 02:27:50 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:27:50 mail.barterbloom.com systemd[2229048]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:27:50 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:27:50 mail.barterbloom.com systemd[2229048]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:27:50 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:27:50 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:27:55 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13187.
+Jun 24 02:27:55 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:27:55 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:27:55 mail.barterbloom.com systemd[2229049]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:27:55 mail.barterbloom.com systemd[2229049]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:27:55 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:27:55 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:28:01 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13188.
+Jun 24 02:28:01 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:28:01 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:28:01 mail.barterbloom.com systemd[2229050]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:28:01 mail.barterbloom.com systemd[2229050]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:28:01 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:28:01 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:28:06 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13189.
+Jun 24 02:28:06 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:28:06 mail.barterbloom.com systemd[2229051]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:28:06 mail.barterbloom.com systemd[2229051]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:28:06 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:28:06 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:28:06 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:28:11 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13190.
+Jun 24 02:28:11 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:28:11 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:28:11 mail.barterbloom.com systemd[2229052]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:28:11 mail.barterbloom.com systemd[2229052]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:28:11 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:28:11 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:28:16 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13191.
+Jun 24 02:28:16 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:28:16 mail.barterbloom.com systemd[2229053]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:28:16 mail.barterbloom.com systemd[2229053]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:28:16 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:28:16 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:28:16 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:28:22 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13192.
+Jun 24 02:28:22 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:28:22 mail.barterbloom.com systemd[2229054]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:28:22 mail.barterbloom.com systemd[2229054]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:28:22 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:28:22 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:28:22 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:28:27 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13193.
+Jun 24 02:28:27 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:28:27 mail.barterbloom.com systemd[2229055]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:28:27 mail.barterbloom.com systemd[2229055]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:28:27 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:28:27 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:28:27 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:28:32 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13194.
+Jun 24 02:28:32 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:28:32 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:28:32 mail.barterbloom.com systemd[2229056]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:28:32 mail.barterbloom.com systemd[2229056]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:28:32 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:28:32 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:28:37 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13195.
+Jun 24 02:28:37 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:28:37 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:28:37 mail.barterbloom.com systemd[2229057]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:28:37 mail.barterbloom.com systemd[2229057]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:28:37 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:28:37 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:28:43 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13196.
+Jun 24 02:28:43 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:28:43 mail.barterbloom.com systemd[2229058]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:28:43 mail.barterbloom.com systemd[2229058]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:28:43 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:28:43 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:28:43 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:28:48 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13197.
+Jun 24 02:28:48 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:28:48 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:28:48 mail.barterbloom.com systemd[2229059]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:28:48 mail.barterbloom.com systemd[2229059]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:28:48 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:28:48 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:28:53 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13198.
+Jun 24 02:28:53 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:28:53 mail.barterbloom.com systemd[2229060]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:28:53 mail.barterbloom.com systemd[2229060]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:28:53 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:28:53 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:28:53 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:28:58 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13199.
+Jun 24 02:28:58 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:28:58 mail.barterbloom.com systemd[2229061]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:28:58 mail.barterbloom.com systemd[2229061]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:28:58 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:28:58 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:28:58 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:29:04 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13200.
+Jun 24 02:29:04 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:29:04 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:29:04 mail.barterbloom.com systemd[2229062]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:29:04 mail.barterbloom.com systemd[2229062]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:29:04 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:29:04 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:29:09 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13201.
+Jun 24 02:29:09 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:29:09 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:29:09 mail.barterbloom.com systemd[2229063]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:29:09 mail.barterbloom.com systemd[2229063]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:29:09 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:29:09 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:29:14 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13202.
+Jun 24 02:29:14 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:29:14 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:29:14 mail.barterbloom.com systemd[2229064]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:29:14 mail.barterbloom.com systemd[2229064]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:29:14 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:29:14 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:29:19 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13203.
+Jun 24 02:29:19 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:29:19 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:29:19 mail.barterbloom.com systemd[2229065]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:29:19 mail.barterbloom.com systemd[2229065]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:29:19 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:29:19 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:29:25 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13204.
+Jun 24 02:29:25 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:29:25 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:29:25 mail.barterbloom.com systemd[2229066]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:29:25 mail.barterbloom.com systemd[2229066]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:29:25 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:29:25 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:29:30 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13205.
+Jun 24 02:29:30 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:29:30 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:29:30 mail.barterbloom.com systemd[2229067]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:29:30 mail.barterbloom.com systemd[2229067]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:29:30 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:29:30 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:29:35 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13206.
+Jun 24 02:29:35 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:29:35 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:29:35 mail.barterbloom.com systemd[2229068]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:29:35 mail.barterbloom.com systemd[2229068]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:29:35 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:29:35 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:29:40 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13207.
+Jun 24 02:29:40 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:29:40 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:29:40 mail.barterbloom.com systemd[2229069]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:29:40 mail.barterbloom.com systemd[2229069]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:29:40 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:29:40 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:29:46 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13208.
+Jun 24 02:29:46 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:29:46 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:29:46 mail.barterbloom.com systemd[2229070]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:29:46 mail.barterbloom.com systemd[2229070]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:29:46 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:29:46 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:29:51 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13209.
+Jun 24 02:29:51 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:29:51 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:29:51 mail.barterbloom.com systemd[2229071]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:29:51 mail.barterbloom.com systemd[2229071]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:29:51 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:29:51 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:29:56 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13210.
+Jun 24 02:29:56 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:29:56 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:29:56 mail.barterbloom.com systemd[2229072]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:29:56 mail.barterbloom.com systemd[2229072]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:29:56 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:29:56 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:30:01 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13211.
+Jun 24 02:30:01 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:30:01 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:30:01 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:30:01 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:30:07 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13212.
+Jun 24 02:30:07 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:30:07 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:30:07 mail.barterbloom.com systemd[2229428]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:30:07 mail.barterbloom.com systemd[2229428]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:30:07 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:30:07 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:30:12 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13213.
+Jun 24 02:30:12 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:30:12 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:30:12 mail.barterbloom.com systemd[2229475]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:30:12 mail.barterbloom.com systemd[2229475]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:30:12 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:30:12 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:30:17 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13214.
+Jun 24 02:30:17 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:30:17 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:30:17 mail.barterbloom.com systemd[2229476]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:30:17 mail.barterbloom.com systemd[2229476]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:30:17 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:30:17 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:30:22 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13215.
+Jun 24 02:30:22 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:30:22 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:30:22 mail.barterbloom.com systemd[2229477]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:30:22 mail.barterbloom.com systemd[2229477]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:30:22 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:30:22 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:30:28 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13216.
+Jun 24 02:30:28 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:30:28 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:30:28 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:30:28 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:30:33 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13217.
+Jun 24 02:30:33 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:30:33 mail.barterbloom.com systemd[2229479]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:30:33 mail.barterbloom.com systemd[2229479]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:30:33 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:30:33 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:30:33 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:30:38 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13218.
+Jun 24 02:30:38 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:30:38 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:30:38 mail.barterbloom.com systemd[2229480]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:30:38 mail.barterbloom.com systemd[2229480]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:30:38 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:30:38 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:30:43 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13219.
+Jun 24 02:30:43 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:30:43 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:30:43 mail.barterbloom.com systemd[2229481]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:30:43 mail.barterbloom.com systemd[2229481]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:30:43 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:30:43 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:30:49 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13220.
+Jun 24 02:30:49 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:30:49 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:30:49 mail.barterbloom.com systemd[2229482]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:30:49 mail.barterbloom.com systemd[2229482]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:30:49 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:30:49 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:30:54 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13221.
+Jun 24 02:30:54 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:30:54 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:30:54 mail.barterbloom.com systemd[2229483]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:30:54 mail.barterbloom.com systemd[2229483]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:30:54 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:30:54 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:30:59 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13222.
+Jun 24 02:30:59 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:30:59 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:30:59 mail.barterbloom.com systemd[2229485]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:30:59 mail.barterbloom.com systemd[2229485]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:30:59 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:30:59 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:31:04 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13223.
+Jun 24 02:31:04 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:31:04 mail.barterbloom.com systemd[2229486]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:31:04 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:31:04 mail.barterbloom.com systemd[2229486]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:31:04 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:31:04 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:31:10 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13224.
+Jun 24 02:31:10 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:31:10 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:31:10 mail.barterbloom.com systemd[2229490]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:31:10 mail.barterbloom.com systemd[2229490]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:31:10 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:31:10 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:31:15 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13225.
+Jun 24 02:31:15 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:31:15 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:31:15 mail.barterbloom.com systemd[2229491]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:31:15 mail.barterbloom.com systemd[2229491]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:31:15 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:31:15 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:31:20 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13226.
+Jun 24 02:31:20 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:31:20 mail.barterbloom.com systemd[2229492]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:31:20 mail.barterbloom.com systemd[2229492]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:31:20 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:31:20 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:31:20 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:31:25 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13227.
+Jun 24 02:31:25 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:31:25 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:31:25 mail.barterbloom.com systemd[2229493]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:31:25 mail.barterbloom.com systemd[2229493]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:31:25 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:31:25 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:31:30 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13228.
+Jun 24 02:31:30 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:31:30 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:31:30 mail.barterbloom.com systemd[2229494]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:31:30 mail.barterbloom.com systemd[2229494]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:31:30 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:31:30 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:31:36 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13229.
+Jun 24 02:31:36 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:31:36 mail.barterbloom.com systemd[2229495]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:31:36 mail.barterbloom.com systemd[2229495]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:31:36 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:31:36 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:31:36 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:31:41 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13230.
+Jun 24 02:31:41 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:31:41 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:31:41 mail.barterbloom.com systemd[2229496]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:31:41 mail.barterbloom.com systemd[2229496]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:31:41 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:31:41 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:31:46 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13231.
+Jun 24 02:31:46 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:31:46 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:31:46 mail.barterbloom.com systemd[2229498]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:31:46 mail.barterbloom.com systemd[2229498]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:31:46 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:31:46 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:31:51 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13232.
+Jun 24 02:31:51 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:31:51 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:31:51 mail.barterbloom.com systemd[2229500]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:31:51 mail.barterbloom.com systemd[2229500]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:31:51 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:31:51 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:31:57 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13233.
+Jun 24 02:31:57 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:31:57 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:31:57 mail.barterbloom.com systemd[2229501]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:31:57 mail.barterbloom.com systemd[2229501]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:31:57 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:31:57 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:32:02 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13234.
+Jun 24 02:32:02 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:32:02 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:32:02 mail.barterbloom.com systemd[2229502]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:32:02 mail.barterbloom.com systemd[2229502]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:32:02 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:32:02 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:32:07 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13235.
+Jun 24 02:32:07 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:32:07 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:32:07 mail.barterbloom.com systemd[2229503]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:32:07 mail.barterbloom.com systemd[2229503]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:32:07 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:32:07 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:32:12 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13236.
+Jun 24 02:32:12 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:32:12 mail.barterbloom.com systemd[2229504]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:32:12 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:32:12 mail.barterbloom.com systemd[2229504]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:32:12 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:32:12 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:32:18 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13237.
+Jun 24 02:32:18 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:32:18 mail.barterbloom.com systemd[2229505]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:32:18 mail.barterbloom.com systemd[2229505]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:32:18 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:32:18 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:32:18 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:32:23 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13238.
+Jun 24 02:32:23 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:32:23 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:32:23 mail.barterbloom.com systemd[2229506]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:32:23 mail.barterbloom.com systemd[2229506]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:32:23 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:32:23 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:32:28 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13239.
+Jun 24 02:32:28 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:32:28 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:32:28 mail.barterbloom.com systemd[2229507]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:32:28 mail.barterbloom.com systemd[2229507]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:32:28 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:32:28 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:32:33 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13240.
+Jun 24 02:32:33 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:32:33 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:32:33 mail.barterbloom.com systemd[2229508]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:32:33 mail.barterbloom.com systemd[2229508]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:32:33 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:32:33 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:32:39 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13241.
+Jun 24 02:32:39 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:32:39 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:32:39 mail.barterbloom.com systemd[2229509]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:32:39 mail.barterbloom.com systemd[2229509]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:32:39 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:32:39 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:32:44 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13242.
+Jun 24 02:32:44 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:32:44 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:32:44 mail.barterbloom.com systemd[2229510]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:32:44 mail.barterbloom.com systemd[2229510]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:32:44 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:32:44 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:32:49 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13243.
+Jun 24 02:32:49 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:32:49 mail.barterbloom.com systemd[2229511]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:32:49 mail.barterbloom.com systemd[2229511]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:32:49 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:32:49 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:32:49 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:32:54 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13244.
+Jun 24 02:32:54 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:32:54 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:32:54 mail.barterbloom.com systemd[2229512]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:32:54 mail.barterbloom.com systemd[2229512]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:32:54 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:32:54 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:33:00 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13245.
+Jun 24 02:33:00 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:33:00 mail.barterbloom.com systemd[2229514]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:33:00 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:33:00 mail.barterbloom.com systemd[2229514]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:33:00 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:33:00 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:33:05 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13246.
+Jun 24 02:33:05 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:33:05 mail.barterbloom.com systemd[2229515]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:33:05 mail.barterbloom.com systemd[2229515]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:33:05 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:33:05 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:33:05 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:33:10 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13247.
+Jun 24 02:33:10 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:33:10 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:33:10 mail.barterbloom.com systemd[2229516]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:33:10 mail.barterbloom.com systemd[2229516]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:33:10 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:33:10 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:33:15 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13248.
+Jun 24 02:33:15 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:33:15 mail.barterbloom.com systemd[2229517]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:33:15 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:33:15 mail.barterbloom.com systemd[2229517]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:33:15 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:33:15 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:33:21 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13249.
+Jun 24 02:33:21 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:33:21 mail.barterbloom.com systemd[2229518]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:33:21 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:33:21 mail.barterbloom.com systemd[2229518]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:33:21 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:33:21 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:33:26 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13250.
+Jun 24 02:33:26 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:33:26 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:33:26 mail.barterbloom.com systemd[2229519]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:33:26 mail.barterbloom.com systemd[2229519]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:33:26 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:33:26 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:33:31 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13251.
+Jun 24 02:33:31 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:33:31 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:33:31 mail.barterbloom.com systemd[2229520]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:33:31 mail.barterbloom.com systemd[2229520]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:33:31 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:33:31 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:33:36 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13252.
+Jun 24 02:33:36 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:33:36 mail.barterbloom.com systemd[1]: Started FastAPI Uvicorn service for backend.
+Jun 24 02:33:36 mail.barterbloom.com systemd[2229521]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:33:36 mail.barterbloom.com systemd[2229521]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:33:36 mail.barterbloom.com systemd[1]: [0;1;39m[0;1;31m[0;1;39mbackend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jun 24 02:33:36 mail.barterbloom.com systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mbackend.service: Failed with result 'exit-code'.[0m
+Jun 24 02:33:42 mail.barterbloom.com systemd[1]: backend.service: Scheduled restart job, restart counter is at 13253.
+Jun 24 02:33:42 mail.barterbloom.com systemd[1]: Stopped FastAPI Uvicorn service for backend.
+Jun 24 02:33:42 mail.barterbloom.com systemd[2229522]: backend.service: Failed to locate executable /home/yoforexai/.venv/bin/uvicorn: No such file or directory
+Jun 24 02:33:42 mail.barterbloom.com systemd[2229522]: [0;1;31m[0;1;39m[0;1;31mbackend.service: Failed at step EXEC spawning /home/yoforexai/.venv/bin/uvicorn: No such file or directory[0m
+Jun 24 02:33:42 mail.barterbloom.com systemd[1]: Started F
