@@ -52,10 +52,8 @@ async def analyze_chart(
 
 
 
-@router.get(
-    "/history",
-    response_model=List[schemas.SwingAnalysisHistoryItem]
-)
+@router.get("/history",  response_model=List[schemas.SwingAnalysisHistoryItem])
+@router.get("/history/", response_model=List[schemas.SwingAnalysisHistoryItem])
 def get_swing_history(
     limit: int = 50,
     db: Session = Depends(get_db)

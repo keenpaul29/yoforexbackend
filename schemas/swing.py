@@ -1,7 +1,7 @@
 # schemas/swing.py
 
 from datetime import datetime
-from typing import Optional, Union
+from typing import Optional, Union, Dict, Any
 from pydantic import BaseModel
 
 class TechnicalAnalysis(BaseModel):
@@ -28,8 +28,8 @@ class SwingAnalysis(BaseModel):
 
 class SwingAnalysisHistoryItem(BaseModel):
     id: int
+    analysis: Dict[str, Any]
     created_at: datetime
-    analysis: SwingAnalysis
 
     class Config:
         orm_mode = True
