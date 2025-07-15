@@ -1,35 +1,49 @@
-# schemas/swing.py
+import os
+import asyncio
+import httpx
+from fastapi import Depends, APIRouter
 
-from datetime import datetime
-from typing import Optional, Union, Dict, Any
-from pydantic import BaseModel
+# … your existing imports, PriceAlert, alerts list, etc. …
 
-class TechnicalAnalysis(BaseModel):
-    RSI: Optional[Union[float, str]]
-    MACD: Optional[Union[float, str]]
-    Moving_Average: Optional[Union[float, str]]
-    ICT_Order_Block: str
-    ICT_Fair_Value_Gap: str
-    ICT_Breaker_Block: str
-    ICT_Trendline: str
+# URL of the external alerts API (set via env or hardcode)
+ALERTS_API_URL = os.getenv("ALERTS_API_URL", "https://your-api.com/api/price")
+SYNC_INTERVAL   = int(os.getenv("ALERT_SYNC_INTERVAL", 60))  # seconds
 
-class SwingAnalysis(BaseModel):
-    signal: str
-    confidence: Union[int, str]            # allow "75%" or 75
-    entry: float
-    stop_loss: float
-    take_profit: float
-    risk_reward_ratio: str
-    timeframe: str
-    technical_analysis: TechnicalAnalysis
-    recommendation: str
-    dynamic_stop_loss: Union[float, str]   # allow 3310.0 or "Calculated above…"
-    dynamic_take_profit: Union[float, str]  # allow 3150.0 or descriptive text
+async def sync_alerts_from_remote():
+    """
+    Fetch the latest alerts from ALERTS_API_URL
+    and overwrite our in-memory `alerts` list.
+    """
+    try:
+        async with httpx.AsyncClient(timeout=10) as client:
+            resp = await client.get(ALERTS_API_URL)
+            resp.raise_for_status()
+            data = resp.json()  # expecting List[ {id,pair,target,direction} ]
 
-class SwingAnalysisHistoryItem(BaseModel):
-    id: int
-    analysis: Dict[str, Any]
-    created_at: datetime
+        # Replace the in-memory list in-place to keep references valid.
+        alerts.clear()
+        for item in data:
+            # validate via Pydantic
+            alerts.append(PriceAlert(**item))
 
-    class Config:
-        orm_mode = True
+        print(f"[alerts] synced {len(alerts)} items from remote")
+    except Exception as e:
+        print(f"[alerts] failed to sync: {e!r}")
+
+async def _periodic_alert_sync():
+    # wait a bit before first sync (optional)
+    await asyncio.sleep(1)
+    while True:
+        await sync_alerts_from_remote()
+        await asyncio.sleep(SYNC_INTERVAL)
+
+# Hook into FastAPI startup
+from fastapi import FastAPI
+
+@router.on_event("startup")
+async def start_alert_sync_task():
+    """
+    Schedule the periodic sync loop when the router is mounted.
+    """
+    # This will run in the background for the lifetime of the app
+    asyncio.create_task(_periodic_alert_sync())
