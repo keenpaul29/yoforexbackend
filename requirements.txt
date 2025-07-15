@@ -10,3 +10,5 @@ requests
 phonenumbers
 python-multipart
 pydantic[email]
+opencv-python
+numpy
