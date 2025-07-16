@@ -19,7 +19,7 @@ class User(Base):
     attempts      = Column(Integer, default=0, nullable=False)
 
 class JSONEncodedDict(TypeDecorator):
-    """Enables JSON storage by encoding to/from TEXT on SQLite."""
+    """Enables JSN storage by encoding to/from TEXT on SQLite."""
     impl = TEXT
 
     def process_bind_param(self, value, dialect):
