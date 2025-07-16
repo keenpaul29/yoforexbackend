@@ -29,6 +29,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install pytest
+        run: pip install pytest
+
       # 4) (Optional) Run tests or lint
       - name: Run tests
         run: |
