@@ -5,11 +5,6 @@ from pydantic import BaseModel
 
 
 class TechnicalAnalysis(BaseModel):
-    """Common technical-analysis indicators extracted from the image.
-
-    This is shared between swing and scalp analyses so that both endpoints
-    return a consistent JSON structure for indicators such as RSI, MACD etc.
-    """
 
     RSI: Optional[Union[float, str]]
     MACD: Optional[Union[float, str]]
@@ -21,11 +16,6 @@ class TechnicalAnalysis(BaseModel):
 
 
 class ScalpAnalysis(BaseModel):
-    """The response model returned by the /scalp/chart endpoint.
-
-    The field names intentionally mirror those in SwingAnalysis so that the
-    front-end can consume either analysis type with minimal branching.
-    """
 
     signal: str
     confidence: Union[int, str]  # allow "75%" or 75
@@ -41,7 +31,6 @@ class ScalpAnalysis(BaseModel):
 
 
 class ScalpAnalysisHistoryItem(BaseModel):
-    """Schema used to serialise DB rows for recently generated scalp analyses."""
 
     id: int
     analysis: Dict[str, Any]
