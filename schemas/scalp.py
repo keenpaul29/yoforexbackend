@@ -38,3 +38,11 @@ class ScalpAnalysisHistoryItem(BaseModel):
 
     class Config:
         orm_mode = True
+
+@router.on_event("startup")
+async def start_alert_sync_task():
+    """
+    Schedule the periodic sync loop when the router is mounted.
+    """
+    # This will run in the background for the lifetime of the app
+    asyncio.create_task(_periodic_alert_sync())
