@@ -9,15 +9,7 @@ psycopg2-binary
 requests
 phonenumbers
 python-multipart
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 pydantic[email]
 opencv-python
 numpy
->>>>>>> d3d055b674d2394995f03fb6c85f426498ae8d0e
-=======
-pydantic[email]
-opencv-python
-numpy
->>>>>>> d3d055b674d2394995f03fb6c85f426498ae8d0e
+httpx
