@@ -10,12 +10,11 @@ from routers import (
     tools,
     alerts,
     community,
-    tips,
     trades,
     prices
 )
 from schemas.swing import start_alert_sync_task
-
+from routers.news import router as news_router
 # Create tables
 Base.metadata.create_all(bind=engine)
 
@@ -55,6 +54,6 @@ app.include_router(community.router, prefix="/community", tags=["Community"])
 @app.on_event("startup")
 async def startup_event():
     await start_alert_sync_task()
-app.include_router(tips.router, prefix="/tips", tags=["Tips"])
+app.include_router(news_router, prefix="/news", tags=["Trading News"])
 app.include_router(trades.router, prefix="/trades", tags=["Trades"])
 app.include_router(prices.router, prefix="/prices", tags=["Prices"])
