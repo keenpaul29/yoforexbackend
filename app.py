@@ -8,7 +8,6 @@ from routers import (
     market,
     performance,
     tools,
-    alerts,
     community,
     tips,
     trades,
