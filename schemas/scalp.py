@@ -18,7 +18,7 @@ class TechnicalAnalysis(BaseModel):
 class ScalpAnalysis(BaseModel):
 
     signal: str
-    confidence: Union[int, str]  # allow "75%" or 75
+    confidence: Union[int, str]  # allow"75%" or 75
     entry: float
     stop_loss: float
     take_profit: float
