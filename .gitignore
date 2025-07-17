@@ -1,8 +1,0 @@
-
-.env
-test.db
-routers/__pycache__
-__pycache__/
-utils/__pycache__
-schemas/__pycache__
-venv

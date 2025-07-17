@@ -47,7 +47,6 @@ app.include_router(swing.router, prefix="/swing", tags=["Chart Analysis"])
 app.include_router(market.router, prefix="/market", tags=["Market"])
 app.include_router(performance.router, prefix="/performance", tags=["Performance"])
 app.include_router(tools.router, prefix="/tools", tags=["Tools"])
-app.include_router(alerts.router, prefix="/alerts", tags=["Alerts"])
 app.include_router(community.router, prefix="/community", tags=["Community"])
 
 # Initialize background tasks
