@@ -13,3 +13,4 @@ pydantic[email]
 opencv-python
 numpy
 httpx
+fastapi-limiter
